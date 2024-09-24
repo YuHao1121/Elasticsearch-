@@ -3594,10 +3594,11 @@ GET /product_catalog/_search
   "query": {
     "range": {
       "price": {
-        "gte": 50
+        "gt": 50
       }
     }
-  }
+  },
+  "size": 20
 }
 ```
 
@@ -3605,7 +3606,7 @@ GET /product_catalog/_search
 
 ``` json
 {
-  "took": 3,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -3828,6 +3829,27 @@ GET /product_catalog/_search
             "appliances"
           ],
           "rating": 4.6
+        }
+      },
+      {
+        "_index": "product_catalog",
+        "_id": "020",
+        "_score": 1,
+        "_source": {
+          "product_id": "P020",
+          "name": "Electric Scooter",
+          "description": "Eco-friendly electric scooter with long battery life.",
+          "category": "Transportation",
+          "price": 299.99,
+          "stock_quantity": 50,
+          "supplier": "EcoRide",
+          "release_date": "2024-08-10",
+          "tags": [
+            "electric",
+            "scooter",
+            "transportation"
+          ],
+          "rating": 4.7
         }
       }
     ]
@@ -4645,10 +4667,8 @@ GET /product_catalog/_search
 GET /product_catalog/_search
 {
   "query": {
-    "term": {
-      "description": {
-        "value": "wireless"
-      }
+    "match": {
+      "description":  "wireless"
     }
   }
 }
