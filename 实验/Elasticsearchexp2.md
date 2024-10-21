@@ -1,28 +1,28 @@
 # 《实验三：聚合操作练习》
 
-**学院：省级示范性软件学院**
+> **学院：省级示范性软件学院**
+>
+> **课程：高级数据库技术与应用**
+>
+> **题目：《实验三：聚合操作练习》**
+>
+> **姓名：唐玉亮**
+>
+> **学号：2100230021**
+>
+> **班级：软工2202**
+>
+> **日期：2024-10-13**
+>
+> **实验环境：Elasticsearch8.12.2、 Kibana8.12.2**
 
-**课程：高级数据库技术与应用**
-
-**题目：《实验三：聚合操作练习》**
-
-**姓名：唐玉亮**
-
-**学号：2100230021**
-
-**班级：软工2202**
-
-**日期：2024-10-13**
-
-**实验环境：Elasticsearch8.12.2、 Kibana8.12.2**
-
-## 实验目的
+## 1. 实验目的
 
 **学习并熟练使用Elasticsearch聚合操作**
 
-## 笔记
+## 2. 笔记
 
-### Status聚合
+### 2.1 tatus聚合
 
 #### Stats 聚合提供一组基本的统计信息,包括count_value, min, max, avg 和 sum。
 
@@ -79,7 +79,7 @@ GET /ecommerce/_search
 }
 ```
 
-### Date Histogram 聚合
+### 2.2 Date Histogram 聚合
 
 Date Histogram 聚合专门用于日期字段的直方图。
 
@@ -89,9 +89,9 @@ Date Histogram 聚合专门用于日期字段的直方图。
 {
   "aggs": {
     "sales_by_month": {
-      "date_histogram": {//表示按...分组
-        "field": "order_date",
-        "calendar_interval": "month",
+      "date_histogram": {//表示对什么字段按...分组
+        "field": "order_date",//对order_date字段
+        "calendar_interval": "month",//month分组
         "format": "yyyy-MM-dd"
       }
     }
@@ -99,7 +99,7 @@ Date Histogram 聚合专门用于日期字段的直方图。
 }
 ```
 
-### Range聚合
+### 2.3 Range聚合
 
 Range 聚合根据数值范围进行分组。
 
@@ -127,9 +127,9 @@ GET /ecommerce/_search
 
 
 
-## 实验内容
+## 3. 实验内容
 
-### 电商数据分析
+### 3.1 电商数据分析
 
 #### 索引表述信息
 
